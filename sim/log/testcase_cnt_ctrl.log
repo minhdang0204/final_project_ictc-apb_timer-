@@ -1,0 +1,231 @@
+# vsim -debugDB -l testcase_cnt_ctrl.log -voptargs="+acc" -assertdebug -c test_bench -do "log -r /*;run -all;" 
+# Start time: 10:33:06 on Jan 06,2026
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Note: (vsim-8611) Generating debug db.
+# ** Warning: (vopt-10908) Some optimizations are turned off because the +acc switch is in effect.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2024.3 linux_x86_64 Sep 10 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Loading work.test_bench(fast)
+# Loading work.timer_top(fast)
+# Loading work.apb_slave_wait_state(fast)
+# Loading work.register_module(fast)
+# Loading work.cnt_ctrl(fast)
+# ** Note: (vsim-8900) Creating design debug database vsim.dbg.
+# log -r /*
+# run -all
+# //////////////////////////////////////////////////////////
+# 			CNT_CTRL CHECK			    
+# \\\\\\\\\\\\\///////////////////////////////
+# DEBUG MODE IS ON
+# ----------------------------------------------------------
+# *************************TEST 1:**************************
+# NORMAL COUNTING MODE:
+#         131 Write data 00000001 at addr 000
+#        2211 Write data 00000001 at addr 01c
+#        2231 Read data at addr 004    	 
+#       2311 rdata of TDR0 = 00000068
+#        2311 Read data at addr 008    	 
+#       2391 rdata of TDR1 = 00000000
+# ----------------------------------------
+#       2391	Pass:	exp_cnt = 0000000000000068		  
+# 		actual  = 0000000000000068		  
+# ----------------------------------------
+#        2451 Write data 00000000 at addr 004
+#        2531 Write data 00000000 at addr 008
+#        2611 Write data 00000000 at addr 01c
+#        2691 Write data 00000000 at addr 000
+#        2771 Write data ffffff00 at addr 004
+#        2851 Write data 00000000 at addr 008
+#        2931 Write data 00000001 at addr 000
+#        8131 Write data 00000001 at addr 01c
+#        8151 Read data at addr 004    	 
+#       8231 rdata of TDR0 = 00000004
+#        8231 Read data at addr 008    	 
+#       8311 rdata of TDR1 = 00000001
+# ----------------------------------------
+#       8311	Pass:	exp_cnt = 0000000100000004		  
+# 		actual  = 0000000100000004		  
+# ----------------------------------------
+#        8371 Write data 00000000 at addr 004
+#        8451 Write data 00000000 at addr 008
+#        8531 Write data 00000000 at addr 01c
+#        8611 Write data 00000000 at addr 000
+# *************************TEST 2:**************************
+# DIV VAL = 0:
+#        8691 Write data 00000003 at addr 000
+#       15691 Write data 00000001 at addr 01c
+#       15711 Read data at addr 004    	 
+#      15791 rdata of TDR0 = 0000015e
+#       15791 Read data at addr 008    	 
+#      15871 rdata of TDR1 = 00000000
+# ----------------------------------------
+#      15871	Pass:	exp_cnt = 000000000000015e		  
+# 		actual  = 000000000000015e		  
+# ----------------------------------------
+#       15931 Write data 00000000 at addr 004
+#       16011 Write data 00000000 at addr 008
+#       16091 Write data 00000000 at addr 01c
+#       16171 Write data 00000002 at addr 000
+#       16251 Write data 00000000 at addr 000
+# DIV VAL = 1:
+#       16331 Write data 00000103 at addr 000
+#       21531 Write data 00000001 at addr 01c
+#       21551 Read data at addr 004    	 
+#      21631 rdata of TDR0 = 00000082
+#       21631 Read data at addr 008    	 
+#      21711 rdata of TDR1 = 00000000
+# ----------------------------------------
+#      21711	Pass:	exp_cnt = 0000000000000082		  
+# 		actual  = 0000000000000082		  
+# ----------------------------------------
+#       21771 Write data 00000000 at addr 004
+#       21851 Write data 00000000 at addr 008
+#       21931 Write data 00000000 at addr 01c
+#       22011 Write data 00000102 at addr 000
+#       22091 Write data 00000000 at addr 000
+# DIV VAL = 2:
+#       22171 Write data 00000203 at addr 000
+#       27371 Write data 00000001 at addr 01c
+#       27391 Read data at addr 004    	 
+#      27471 rdata of TDR0 = 00000041
+#       27471 Read data at addr 008    	 
+#      27551 rdata of TDR1 = 00000000
+# ----------------------------------------
+#      27551	Pass:	exp_cnt = 0000000000000041		  
+# 		actual  = 0000000000000041		  
+# ----------------------------------------
+#       27611 Write data 00000000 at addr 004
+#       27691 Write data 00000000 at addr 008
+#       27771 Write data 00000000 at addr 01c
+#       27851 Write data 00000202 at addr 000
+#       27931 Write data 00000000 at addr 000
+# DIV VAL = 3:
+#       28011 Write data 00000303 at addr 000
+#       33211 Write data 00000001 at addr 01c
+#       33231 Read data at addr 004    	 
+#      33311 rdata of TDR0 = 00000020
+#       33311 Read data at addr 008    	 
+#      33391 rdata of TDR1 = 00000000
+# ----------------------------------------
+#      33391	Pass:	exp_cnt = 0000000000000020		  
+# 		actual  = 0000000000000020		  
+# ----------------------------------------
+#       33451 Write data 00000000 at addr 004
+#       33531 Write data 00000000 at addr 008
+#       33611 Write data 00000000 at addr 01c
+#       33691 Write data 00000302 at addr 000
+#       33771 Write data 00000000 at addr 000
+# DIV VAL = 4:
+#       33851 Write data 00000403 at addr 000
+#       39051 Write data 00000001 at addr 01c
+#       39071 Read data at addr 004    	 
+#      39151 rdata of TDR0 = 00000010
+#       39151 Read data at addr 008    	 
+#      39231 rdata of TDR1 = 00000000
+# ----------------------------------------
+#      39231	Pass:	exp_cnt = 0000000000000010		  
+# 		actual  = 0000000000000010		  
+# ----------------------------------------
+#       39291 Write data 00000000 at addr 004
+#       39371 Write data 00000000 at addr 008
+#       39451 Write data 00000000 at addr 01c
+#       39531 Write data 00000402 at addr 000
+#       39611 Write data 00000000 at addr 000
+# DIV VAL = 5:
+#       39691 Write data 00000503 at addr 000
+#       44891 Write data 00000001 at addr 01c
+#       44911 Read data at addr 004    	 
+#      44991 rdata of TDR0 = 00000008
+#       44991 Read data at addr 008    	 
+#      45071 rdata of TDR1 = 00000000
+# ----------------------------------------
+#      45071	Pass:	exp_cnt = 0000000000000008		  
+# 		actual  = 0000000000000008		  
+# ----------------------------------------
+#       45131 Write data 00000000 at addr 004
+#       45211 Write data 00000000 at addr 008
+#       45291 Write data 00000000 at addr 01c
+#       45371 Write data 00000502 at addr 000
+#       45451 Write data 00000000 at addr 000
+# DIV VAL = 6:
+#       45531 Write data 00000603 at addr 000
+#       50731 Write data 00000001 at addr 01c
+#       50751 Read data at addr 004    	 
+#      50831 rdata of TDR0 = 00000004
+#       50831 Read data at addr 008    	 
+#      50911 rdata of TDR1 = 00000000
+# ----------------------------------------
+#      50911	Pass:	exp_cnt = 0000000000000004		  
+# 		actual  = 0000000000000004		  
+# ----------------------------------------
+#       50971 Write data 00000000 at addr 004
+#       51051 Write data 00000000 at addr 008
+#       51131 Write data 00000000 at addr 01c
+#       51211 Write data 00000602 at addr 000
+#       51291 Write data 00000000 at addr 000
+# DIV VAL = 7:
+#       51371 Write data 00000703 at addr 000
+#       56571 Write data 00000001 at addr 01c
+#       56591 Read data at addr 004    	 
+#      56671 rdata of TDR0 = 00000002
+#       56671 Read data at addr 008    	 
+#      56751 rdata of TDR1 = 00000000
+# ----------------------------------------
+#      56751	Pass:	exp_cnt = 0000000000000002		  
+# 		actual  = 0000000000000002		  
+# ----------------------------------------
+#       56811 Write data 00000000 at addr 004
+#       56891 Write data 00000000 at addr 008
+#       56971 Write data 00000000 at addr 01c
+#       57051 Write data 00000702 at addr 000
+#       57131 Write data 00000000 at addr 000
+# DIV VAL = 8:
+#       57211 Write data 00000803 at addr 000
+#       62411 Write data 00000001 at addr 01c
+#       62431 Read data at addr 004    	 
+#      62511 rdata of TDR0 = 00000001
+#       62511 Read data at addr 008    	 
+#      62591 rdata of TDR1 = 00000000
+# ----------------------------------------
+#      62591	Pass:	exp_cnt = 0000000000000001		  
+# 		actual  = 0000000000000001		  
+# ----------------------------------------
+#       62651 Write data 00000000 at addr 004
+#       62731 Write data 00000000 at addr 008
+#       62811 Write data 00000000 at addr 01c
+#       62891 Write data 00000802 at addr 000
+#       62971 Write data 00000000 at addr 000
+# DIV VAL = 8, DIV EN = 0
+#       63051 Write data 00000801 at addr 000
+#       65131 Write data 00000001 at addr 01c
+#       65151 Read data at addr 004    	 
+#      65231 rdata of TDR0 = 00000068
+#       65231 Read data at addr 008    	 
+#      65311 rdata of TDR1 = 00000000
+# ----------------------------------------
+#      65311	Pass:	exp_cnt = 0000000000000068		  
+# 		actual  = 0000000000000068		  
+# ----------------------------------------
+#       65371 Write data 00000000 at addr 004
+#       65451 Write data 00000000 at addr 008
+#       65531 Write data 00000000 at addr 01c
+#       65611 Write data 00000800 at addr 000
+#       65691 Write data 00000000 at addr 000
+# Test_result  PASSED 
+# ** Note: $finish    : ../tb/test_bench.v(40)
+#    Time: 65811 ns  Iteration: 0  Instance: /test_bench
+# End time: 10:33:07 on Jan 06,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 1

@@ -1,0 +1,77 @@
+Coverage Report by instance with details
+
+=================================================================================
+=== Instance: /test_bench/u_dut/counter_control
+=== Design Unit: work.cnt_ctrl
+=================================================================================
+Condition Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Conditions                       5         4         1    80.00%
+
+================================Condition Details================================
+
+Condition Coverage for instance /test_bench/u_dut/counter_control --
+
+  File ../rtl/cnt_ctrl.v
+
+----------------Focused Condition View-------------------
+Line       21 Item    1  ((timer_en & div_en) & (div_val != 0))
+Condition totals: 2 of 3 input terms covered = 66.66%
+
+      Input Term   Covered  Reason for no coverage   Hint
+     -----------  --------  -----------------------  --------------
+          div_en         N  '_0' not hit             Hit '_0'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:         18  timer_en_0            ((div_val != 0) && div_en)    
+  Row   2:         24  timer_en_1            ((div_val != 0) && div_en)    
+  Row   3:    ***0***  div_en_0              ((div_val != 0) && timer_en)  
+  Row   4:         24  div_en_1              ((div_val != 0) && timer_en)  
+  Row   5:          6  (div_val != 0)_0      (timer_en & div_en)           
+  Row   6:         24  (div_val != 0)_1      (timer_en & div_en)           
+
+
+Expression Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Expressions                     10         9         1    90.00%
+
+================================Expression Details================================
+
+Expression Coverage for instance /test_bench/u_dut/counter_control --
+
+  File ../rtl/cnt_ctrl.v
+
+-----------Focused Expression View (Bimodal)------------
+Line       31 Item    1  ((((~div_en & timer_en) | (((timer_en & div_en) & (div_val != 0)) & (int_cnt == limit))) | ((timer_en & div_en) & (div_val == 0))) & (halt_req ~& debug_mode))
+Expression totals: 6 of 7 input terms covered = 85.71%
+
+            Input Term   Covered  Reason for no coverage                  Hint
+           -----------  --------  --------------------------------------  --------------
+        (div_val != 0)         N  '_1' hit but '_0' is not hit           Hit '_0' for output ->0
+
+    Rows:   Hits(->0)   Hits(->1)  FEC Target              Non-masking condition(s)                                                                                                                                                                                                                                                                                                                                                                                                           
+
+---------  ----------  ----------  --------------------    -------------------------                                                                                                                                                                                                                                                                                                                                                                                                          
+ Row   1:           0           6  div_en_0                ((halt_req ~& debug_mode) && timer_en)                                                                                                                                                                                                                                                                                                                                                                                             
+ Row   2:          24          24  div_en_1                ((halt_req ~& debug_mode) && ~((timer_en & div_en) & (div_val == 0)) && ~(((timer_en & div_en) & (div_val != 0)) & (int_cnt == limit)) && timer_en), ((halt_req ~& debug_mode) && ~((timer_en & div_en) & (div_val == 0)) && (int_cnt == limit) && (div_val != 0) && timer_en), ((halt_req ~& debug_mode) && ~((~div_en & timer_en) | (((timer_en & div_en) & (div_val != 0)) & (int_cnt == limit))) && (div_val == 0) && timer_en)
+ Row   3:          42           0  timer_en_0              ((halt_req ~& debug_mode) && ~div_en), ((halt_req ~& debug_mode) && (int_cnt == limit) && (div_val != 0) && div_en), ((halt_req ~& debug_mode) && (div_val == 0) && div_en)                                                                                                                                                                                                                                                        
+ Row   4:           0          24  timer_en_1              ((halt_req ~& debug_mode) && ~div_en), ((halt_req ~& debug_mode) && ~((timer_en & div_en) & (div_val == 0)) && (int_cnt == limit) && (div_val != 0) && div_en), ((halt_req ~& debug_mode) && ~((~div_en & timer_en) | (((timer_en & div_en) & (div_val != 0)) & (int_cnt == limit))) && (div_val == 0) && div_en)                                                                                                                  
+ Row   5:           0           0  (div_val != 0)_0        ((halt_req ~& debug_mode) && ~((timer_en & div_en) & (div_val == 0)) && ~(~div_en & timer_en) && (int_cnt == limit) && (timer_en & div_en))                                                                                                                                                                                                                                                                                        
+ Row   6:           0          24  (div_val != 0)_1        ((halt_req ~& debug_mode) && ~((timer_en & div_en) & (div_val == 0)) && ~(~div_en & timer_en) && (int_cnt == limit) && (timer_en & div_en))                                                                                                                                                                                                                                                                                        
+ Row   7:          24           0  (int_cnt == limit)_0    ((halt_req ~& debug_mode) && ~((timer_en & div_en) & (div_val == 0)) && ~(~div_en & timer_en) && ((timer_en & div_en) & (div_val != 0)))                                                                                                                                                                                                                                                                                           
+ Row   8:           0          24  (int_cnt == limit)_1    ((halt_req ~& debug_mode) && ~((timer_en & div_en) & (div_val == 0)) && ~(~div_en & timer_en) && ((timer_en & div_en) & (div_val != 0)))                                                                                                                                                                                                                                                                                           
+ Row   9:          24           0  (div_val == 0)_0        ((halt_req ~& debug_mode) && ~((~div_en & timer_en) | (((timer_en & div_en) & (div_val != 0)) & (int_cnt == limit))) && (timer_en & div_en))                                                                                                                                                                                                                                                                                       
+Row   10:           0          12  (div_val == 0)_1        ((halt_req ~& debug_mode) && ~((~div_en & timer_en) | (((timer_en & div_en) & (div_val != 0)) & (int_cnt == limit))) && (timer_en & div_en))                                                                                                                                                                                                                                                                                       
+Row   11:           0           6  halt_req_0              ((((~div_en & timer_en) | (((timer_en & div_en) & (div_val != 0)) & (int_cnt == limit))) | ((timer_en & div_en) & (div_val == 0))) && debug_mode)                                                                                                                                                                                                                                                                                  
+Row   12:           6           0  halt_req_1              ((((~div_en & timer_en) | (((timer_en & div_en) & (div_val != 0)) & (int_cnt == limit))) | ((timer_en & div_en) & (div_val == 0))) && debug_mode)                                                                                                                                                                                                                                                                                  
+Row   13:           0           6  debug_mode_0            ((((~div_en & timer_en) | (((timer_en & div_en) & (div_val != 0)) & (int_cnt == limit))) | ((timer_en & div_en) & (div_val == 0))) && halt_req)                                                                                                                                                                                                                                                                                    
+Row   14:           6           0  debug_mode_1            ((((~div_en & timer_en) | (((timer_en & div_en) & (div_val != 0)) & (int_cnt == limit))) | ((timer_en & div_en) & (div_val == 0))) && halt_req)                                                                                                                                                                                                                                                                                    
+
+
+
+
+Total Coverage By Instance (filtered view): 85.00%
+

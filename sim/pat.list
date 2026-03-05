@@ -1,0 +1,7 @@
+testcase_rst_chk
+testcase_rd_wr_chk
+testcase_addr_reserved_chk
+testcase_byte_access_chk
+testcase_1_hot_check
+testcase_cnt_ctrl
+testcase_apb_pslverr
